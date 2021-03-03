@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <br />
+    <br />
+    <div>
+        
+        <table>
+            <tr>
+                <td>
+                    <label>Student's Name</label>
+                    <input type="text" hidden ng-model="objStudent.ID" />
+                    <input type="text" class="form-control" ng-model="objStudent.Name" />
+                </td>
+                <td>
+                    <label>Phone</label>
+                    <input type="text" class="form-control" ng-model="objStudent.Phone" />
+                </td>
+                <td>
+                    <label>Address</label>
+                    <input type="text" class="form-control" ng-model="objStudent.Address" />
+                </td>
+                <td>
+                    <label>Action</label>
+                    <div>
+                        <button class="btn btn-success" ng-click="SaveStudent()">Save</button>
+                        <button class="btn btn-primary" ng-click="UpdateStudent()">Update</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br /><br />
+          <div>
+              <br /> <br />
+              <input type="text" ng-model="searchText" />
+              <table class="table table-bordered table-striped">
+                  <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Action</th>
+                  </tr>
+                  <tr ng-repeat="p in StudentList | filter: searchText ">
+                      <td>{{p.ID}}</td>
+                      <td>{{p.Name}}</td>
+                      <td>{{p.Phone}}</td>
+                      <td>{{p.Address}}</td>
+                      <td>
+                          <button class="btn btn-info" ng-click="EditStudent(p)">Edit</button>
+                          <button class="btn btn-danger" ng-click="DeleteStudent(p.ID)">Delete</button>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+</body>
+</html>
